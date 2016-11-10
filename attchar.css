@@ -1,0 +1,81 @@
+/*
+Copyright (c) 2016 ZettaScript, Pascal Engélibert
+This file is part of ATTCHAR.
+
+	ATTCHAR is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	ATTCHAR is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Lesser General Public License for more details.
+
+	You should have received a copy of the GNU Lesser General Public License
+	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@font-face {
+font-family: Garamond;
+src: url(EBGaramond08-Regular.otf);
+}
+
+@font-face {
+font-family: Cantarell;
+src: url(Cantarell-Regular.otf);
+}
+
+#attchar {
+color: white;
+background-color: black;
+border: 2px solid #0080FF;
+border-radius: 20px;
+width: 256px;
+text-align: center;
+font-family: Cantarell;
+font-size: 18px;
+}
+
+#attchar_title {
+font-size: 24px;
+}
+
+#attchar_input {
+font-family: Cantarell;
+font-size: 24px;
+border: 1px solid #0080FF;
+border-radius: 5px;
+margin-top: -16px;
+height: 32px;
+width: 240px;
+}
+
+#attchar_new {
+margin-top: 4px;
+margin-bottom: -4px;
+transition-property: transform, opacity;
+transition-duration: 0.3s;
+}
+
+#attchar_new:hover {
+transform: rotate(180deg);
+opacity: 0.7;
+}
+
+#attchar_audio, #attchar_audiojs {;
+transition-property: opacity;
+transition-duration: 0.3s;
+}
+
+#attchar_audio:hover, #attchar_audiojs:hover {
+opacity: 0.7;
+}
+
+.attchar_text {
+padding-left: 8px;
+padding-right: 8px;
+padding-bottom: 4px;
+margin: 0;
+text-align: justify;
+}
