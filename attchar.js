@@ -19,10 +19,13 @@ This file is part of ATTCHAR.
 var audio;
 function attchar_imgld() {
 	document.getElementById('attchar_input').disabled=false;
-	document.getElementById('attchar_input').placeholder = 'Code ATTCHAR';
-	document.getElementById("attchar_audio").style.display = "none";
-	document.getElementById("attchar_audiojs").style.display = "inline-block";
-	audio = new Audio("/attchar/attchar_audio.php?c="+document.getElementById("attchar_hid").value);
+	document.getElementById('attchar_input').placeholder = 'Code anti-SPAM';
+	try {audio = new Audio("/attchar/attchar_audio.php?c="+document.getElementById("attchar_hid").value);}
+	catch(e) {audio = null;}
+	if(audio) {
+		document.getElementById("attchar_audio").style.display = "none";
+		document.getElementById("attchar_audiojs").style.display = "inline-block";
+	}
 }
 function getHttpRequest() {
   var httpRequest = false;
@@ -74,6 +77,6 @@ function attchar_change(obj) {
 }
 
 function attchar_audio() {
-	audio.play();
+	if(audio) audio.play();
 	document.getElementById("attchar_input").focus();
 }

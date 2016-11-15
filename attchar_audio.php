@@ -20,7 +20,7 @@ This file is part of ATTCHAR.
 include('database.php');
 $req = $bdd->prepare('SELECT * FROM attchar WHERE haship=?');
 $req->execute(array(sha1($_SERVER['REMOTE_ADDR'])));
-usleep(100000);
+usleep(95000+rand(5000,10000));
 $code = '';
 while($data = $req->fetch()) {
 	if($data['expire'] > time() and $_GET['c'] == substr($data['hashcode'],40,40)) {
