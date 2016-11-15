@@ -17,7 +17,7 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-usleep(100000);// bruteforce / bdd saturation
+usleep(95000+rand(5000,10000));// bruteforce / bdd saturation
 $alpha = '012345689ABCDEFX';
 $code = '';
 $i = 0;
