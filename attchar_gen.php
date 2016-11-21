@@ -21,7 +21,7 @@ usleep(95000+rand(5000,10000));// bruteforce / bdd saturation
 $alpha = '012345689ABCDEFX';
 $code = '';
 $i = 0;
-while($i < 8) {
+while($i < 8) {// code generation
 	$code .= $alpha[rand(0, 15)];
 	$i ++;
 }
@@ -31,16 +31,16 @@ catch(Exception $e) {die('Error : ' . $e->getMessage());}
 
 include('database.php');
 
-// nettoyer la table
+// clean
 $req = $bdd->prepare('DELETE FROM attchar WHERE expire < ?');
 $req->execute(array(time()));
 
 $req = $bdd->prepare('INSERT INTO attchar(hashcode, expire, haship, code) VALUES(?, ?, ?, ?)');
-$req->execute(array(sha1($code).$c, time()+3600, sha1($_SERVER['REMOTE_ADDR']), $code));
+$req->execute(array(sha1($code).$c, time()+3600, sha1($_SERVER['REMOTE_ADDR']), $code));// prepare to avoid SQL injections!!!
 
-header('Content-type: image/jpeg');
+header('Content-type: image/jpeg');// this is an image
 $image = imagecreate(256, 96);
-$fonts = array(0=>'BioRhymeExpanded-Light.ttf','coiny-regular.ttf','Digory_Doodles_PS.ttf','Domine-Regular.ttf','DroidSerif-Italic.ttf','Eczar-SemiBold.ttf','FreeMonoBold.ttf','ProzaLibre-LightItalic.ttf','Ritaglio.ttf','soria-font.ttf','SpaceMono-Regular.ttf');
+$fonts = array(0=>'BioRhymeExpanded-Light.ttf','coiny-regular.ttf','Digory_Doodles_PS.ttf','Domine-Regular.ttf','DroidSerif-Italic.ttf','Eczar-SemiBold.ttf','FreeMonoBold.ttf','ProzaLibre-LightItalic.ttf','Ritaglio.ttf','soria-font.ttf','SpaceMono-Regular.ttf');// load fonts
 $nbfonts = count($fonts)-1;
 $copyfont = 'fonts/EBGaramond08-Regular.ttf';
 $color_bg = imagecolorallocate($image, 0, 0, 0);
@@ -62,10 +62,10 @@ while($i < 8) {
 
 $i = rand(0,1);
 while($i < 4) {
-	rand(0,255);
-	rand(0,255);
-	rand(0,255);// avoid repetitions
-	imageline($image, rand(0,14), rand(16,80), rand(242,256), rand(16,80), imagecolorallocate($image, rand(0,255), rand(0,255), rand(0,255)));
+	$y1 = rand(16,80);
+	$y2 = rand(16,80);
+	imageline($image, rand(0,14), $y1, rand(242,256), $y2, imagecolorallocate($image, rand(0,255), rand(0,255), rand(0,255)));
+	imageline($image, rand(0,14), 48-($y1-48), rand(242,256), 48-($y2-48), imagecolorallocate($image, rand(0,255), rand(0,255), rand(0,255)));
 	$i ++;
 }
 imagefilter($image, IMG_FILTER_SMOOTH, rand(16,32));
