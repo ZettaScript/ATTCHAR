@@ -46,9 +46,8 @@ font-family: Cantarell;
 font-size: 24px;
 border: 1px solid #0080FF;
 border-radius: 5px;
-margin-top: -16px;
 height: 32px;
-width: 240px;
+width: 160px;
 }
 
 #attchar_new {
@@ -64,6 +63,8 @@ opacity: 0.7;
 }
 
 #attchar_audio, #attchar_audiojs {;
+margin-top: 4px;
+margin-bottom: -4px;
 transition-property: opacity;
 transition-duration: 0.3s;
 }
@@ -78,4 +79,17 @@ padding-right: 8px;
 padding-bottom: 4px;
 margin: 0;
 text-align: justify;
+line-height: 13pt;
+}
+
+#attchar_label {
+position: relative;
+top: 20px;
+z-index: -2;
+}
+
+#attchar_about {
+float: right;
+margin-top: -31px;
+margin-right: 8px;
 }

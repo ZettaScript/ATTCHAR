@@ -29,10 +29,11 @@ while($data = $req->fetch()) {
 	}
 }
 $req->closeCursor();
-header("Cache-Control: no-cache, must-revalidate");
+header('Cache-Control: no-cache, must-revalidate');
 $list = array();
 if($code != '') {
 	header('Content-type: audio/x-wav');
+	header('Content-Disposition: inline; filename="attchar.wav"');
 	$i = 0;
 	while($i < 8) {
 		$list[] = 'sounds/sound_'.$code[$i].'.wav';
