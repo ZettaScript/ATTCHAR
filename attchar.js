@@ -19,7 +19,7 @@ This file is part of ATTCHAR.
 var audio;
 function attchar_imgld() {
 	document.getElementById('attchar_input').disabled=false;
-	document.getElementById('attchar_input').placeholder = 'Code anti-SPAM';
+	document.getElementById('attchar_input').placeholder = 'Code';
 	try {audio = new Audio("/attchar/attchar_audio.php?c="+document.getElementById("attchar_hid").value);}
 	catch(e) {audio = null;}
 	if(audio) {
