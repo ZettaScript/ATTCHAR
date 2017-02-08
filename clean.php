@@ -17,7 +17,7 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-try {$bdd = new PDO('mysql:host=localhost;dbname=zettamain;charset=utf8', 'zettamain_user', 'TuxLeManchot3306');}
+try {$bdd = new PDO('mysql:host=localhost;dbname=database;charset=utf8', 'user', 'password');}
 catch(Exception $e) {die('Erreur : ' . $e->getMessage());}
 
 // nettoyer la table
