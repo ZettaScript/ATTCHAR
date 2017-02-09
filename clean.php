@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -17,10 +17,9 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-try {$bdd = new PDO('mysql:host=localhost;dbname=zettamain;charset=utf8', 'zettamain_user', 'TuxLeManchot3306');}
-catch(Exception $e) {die('Erreur : ' . $e->getMessage());}
+require_once('database.php');
 
 // nettoyer la table
-$req = $bdd->prepare('DELETE FROM attchar WHERE expire < ?');
+$req = $attchar_bdd->prepare('DELETE FROM `attchar` WHERE `expire` < ?');
 $req->execute(array(time()));
 ?>
