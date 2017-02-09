@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -15,11 +15,6 @@ This file is part of ATTCHAR.
 	You should have received a copy of the GNU Lesser General Public License
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-@font-face {
-font-family: Garamond;
-src: url(EBGaramond08-Regular.otf);
-}
 
 @font-face {
 font-family: Cantarell;
@@ -92,4 +87,10 @@ z-index: -2;
 float: right;
 margin-top: -31px;
 margin-right: 8px;
+transition-property: opacity;
+transition-duration: 0.3s;
+}
+
+#attchar_about:hover {
+opacity: 0.8;
 }
