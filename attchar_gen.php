@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-usleep(95000+rand(5000,10000));// bruteforce / bdd saturation
+usleep(rand(5000,10000));// bruteforce / bdd saturation
 $alpha = '012345689ABCDEFX';
 $code = '';
 $i = 0;
@@ -29,14 +29,10 @@ while($i < 8) {// code generation
 try {$c = $_GET['c'];}
 catch(Exception $e) {die('Error : ' . $e->getMessage());}
 
-include('database.php');
+require_once('database.php');
 
-// clean
-$req = $bdd->prepare('DELETE FROM attchar WHERE expire < ?');
-$req->execute(array(time()));
-
-$req = $bdd->prepare('INSERT INTO attchar(hashcode, expire, haship, code) VALUES(?, ?, ?, ?)');
-$req->execute(array(sha1($code).$c, time()+3600, sha1($_SERVER['REMOTE_ADDR']), $code));// prepare to avoid SQL injections!!!
+$req = $attchar_bdd->prepare('INSERT INTO `attchar` (`hashcode`, `expire`, `haship`, `code`) VALUES (?, ?, ?, ?)');
+$req->execute(array(sha1($code).$c, time()+3600, sha1($_SERVER['REMOTE_ADDR']), $code));
 
 header('Content-type: image/jpeg');// this is an image
 $image = imagecreate(256, 96);
@@ -44,7 +40,7 @@ $fonts = array(0=>'BioRhymeExpanded-Light.ttf','coiny-regular.ttf','Digory_Doodl
 $nbfonts = count($fonts)-1;
 $copyfont = 'fonts/EBGaramond08-Regular.ttf';
 $color_bg = imagecolorallocate($image, 0, 0, 0);
-$color_copy = imagecolorallocate($image, rand(16,20), rand(16,20), rand(16,20));
+$color_copy = imagecolorallocate($image, rand(24,32), rand(24,32), rand(24,32));
 
 $x = rand(-32, 32);
 while($x < 256) {
@@ -68,8 +64,15 @@ while($i < 4) {
 	imageline($image, rand(0,14), 48-($y1-48), rand(242,256), 48-($y2-48), imagecolorallocate($image, rand(0,255), rand(0,255), rand(0,255)));
 	$i ++;
 }
-imagefilter($image, IMG_FILTER_SMOOTH, rand(16,32));
+imagefilter($image, IMG_FILTER_SMOOTH, rand(20,36));
+
+for($i=0;$i<200;$i++) {
+	$color = imagecolorallocate($image, rand(0,255), rand(0,255), rand(0,255));
+	imagesetpixel($image, rand(0,255), rand(0,95), $color);
+	imagesetpixel($image, rand(0,255), rand(0,95), $color);
+}
+
 imagejpeg($image, NULL, 70);
 imagedestroy($image);
-echo "\x00\x00Copyright (c) 2016 ATTCHAR\x00";
+echo "\x00\x00Copyright (c) 2016-2017 ATTCHAR\x00";
 ?>

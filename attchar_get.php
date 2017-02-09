@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -17,10 +17,10 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-include('database.php');
-$req = $bdd->prepare('SELECT * FROM attchar WHERE haship=?');
+require_once('database.php');
+$req = $attchar_bdd->prepare('SELECT * FROM `attchar` WHERE `haship` = ?');
 $req->execute(array(sha1($_SERVER['REMOTE_ADDR'])));
-usleep(95000+rand(5000,10000));
+usleep(rand(5000,10000));
 $attchar_ok = false;
 $id = -1;
 while($data = $req->fetch()) {
@@ -33,7 +33,7 @@ while($data = $req->fetch()) {
 }
 $req->closeCursor();
 if($id != -1) {
-	$req = $bdd->prepare('DELETE FROM attchar WHERE id=?');
+	$req = $attchar_bdd->prepare('DELETE FROM `attchar` WHERE `id` = ?');
 	$req->execute(array($id));
 }
 ?>

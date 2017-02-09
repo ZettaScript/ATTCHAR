@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -17,6 +17,7 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-try {$bdd = new PDO('mysql:host=localhost;dbname=DATABASE_NAME;charset=utf8', 'DATABASE_USER', 'USER_PASSWORD');}
+// please complete this
+try {$attchar_bdd = new PDO('mysql:host=localhost;dbname=DATABASE_NAME;charset=utf8', 'USER_NAME', 'USER_PASSWORD');}
 catch(Exception $e) {die('Error : ' . $e->getMessage());}
 ?>

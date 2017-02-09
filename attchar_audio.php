@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -17,10 +17,10 @@ This file is part of ATTCHAR.
 	along with ATTCHAR.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-include('database.php');
-$req = $bdd->prepare('SELECT * FROM attchar WHERE haship=?');
+require_once('database.php');
+$req = $attchar_bdd->prepare('SELECT * FROM `attchar` WHERE `haship` = ?');
 $req->execute(array(sha1($_SERVER['REMOTE_ADDR'])));
-usleep(95000+rand(5000,10000));
+usleep(rand(5000,10000));
 $code = '';
 while($data = $req->fetch()) {
 	if($data['expire'] > time() and $_GET['c'] == substr($data['hashcode'],40,40)) {
@@ -58,7 +58,8 @@ foreach($list as $file)
 	$buf = fread($res, filesize($file) - 44);
 	$len = strlen($buf);
 	for($i=0; $i<$len; $i++) {
-		$datas .= chr((ord($buf[$i])+rand(-2,2))%256);}
+		$datas .= chr((ord($buf[$i])+rand(-2,2))%256*!!rand(0,1000));
+	}
 }
 
 $datasize = strlen($datas);
