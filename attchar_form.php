@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2016 ZettaScript, Pascal Engélibert
+Copyright (c) 2016-2017 ZettaScript, Pascal Engélibert
 This file is part of ATTCHAR.
 
 	ATTCHAR is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@ This file is part of ATTCHAR.
 $code = sha1(date('dNmYHis').strval(rand(-99999,99999))); ?>
 <div id="attchar">
 <span id="attchar_title">ATTCHAR</span><br />
-<a href="https://zettascript.org/attchar/about.php" title="Qu'est-ce que c'est?" target="_blank"><img id="attchar_about" alt="Qu'est-ce qu'ATTCHAR?" src="/attchar/images/about.png" /></a>
+<a href="https://zettascript.org/pro/attchar/about.php" title="Qu'est-ce que c'est?" target="_blank"><img id="attchar_about" alt="Qu'est-ce qu'ATTCHAR?" src="/attchar/images/about.png" /></a>
 <input id="attchar_hid" type="hidden" value="<?php echo $code; ?>" name="attchar_auto" autocomplete="off" />
 <img id="attchar_img" alt="Image anti-SPAM" src="/attchar/attchar_gen.php?c=<?php echo $code; ?>" onload="attchar_imgld();" />
 <label for="attchar_input" id="attchar_label">Code antispam</label>
