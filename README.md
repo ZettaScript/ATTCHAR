@@ -32,7 +32,7 @@ It is true if you are a human, false if you are a robot.
 Warning: You must verify if the POST parameters are set:
 	isset($_POST['attchar_auto']) and isset($_POST['attchar_code'])
 
-See example files test1.php and test2.php for more infos.
+See example.php to get more details.
 
 ## Instructions (Français)
 ### Installer ATTCHAR
@@ -68,4 +68,4 @@ Elle vaut true si le test a été passé avec succès (si l'utilisateur est bien
 Attention: il faut vérifier avant d'inclure attchar_get.php que les paramètres POST sont bien déclarés:
 	isset($_POST['attchar_auto']) and isset($_POST['attchar_code'])
 
-Examinez les fichier d'exemple test1.php et test2.php pour plus de détails.
+Examinez le fichier example.php pour avoir plus de détails concernant l'implémentation.
