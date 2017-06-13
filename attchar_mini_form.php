@@ -27,15 +27,13 @@ var tr_placeholder_conn = "<?php echo $tr['PLACEHOLDER_CONN']; ?>";
 var tr_placeholder_load = "<?php echo $tr['PLACEHOLDER_LOAD']; ?>";
 var tr_placeholder_err = "<?php echo $tr['PLACEHOLDER_ERR']; ?>";
 </script>
-<span id="attchar_title"><?php echo $tr['TITLE']; ?></span><br />
-<a href="https://zettascript.org/pro/attchar/about.php" title="<?php echo $tr['WHAT_TITLE']; ?>" target="_blank"><img id="attchar_about" alt="<?php echo $tr['WHAT_ALT']; ?>" src="/attchar/images/about.png" /></a>
 <input id="attchar_hid" type="hidden" value="<?php echo $code; ?>" name="attchar_auto" autocomplete="off" />
 <img id="attchar_img" alt="<?php echo $tr['IMG_ALT']; ?>" src="/attchar/attchar_gen.php?c=<?php echo $code; ?>" onload="attchar_imgld();" />
+<a href="https://zettascript.org/pro/attchar/about.php" title="<?php echo $tr['WHAT_TITLE']; ?>" target="_blank"><img id="attchar_about" alt="<?php echo $tr['WHAT_ALT']; ?>" src="/attchar/images/about.png" /></a>
 <label for="attchar_input" id="attchar_label"><?php echo $tr['LABEL']; ?></label>
 <input id="attchar_input" type="text" name="attchar_code" maxlength="8" placeholder="<?php echo $tr['PLACEHOLDER']; ?>" autocomplete="off" onkeyup="attchar_change(this);" value="" style="background-color:white;" required />
 <a href="#" onclick="attchar_new();" title="<?php echo $tr['BT_NEW']; ?>"><img id="attchar_new" style="display:none;" alt="<?php echo $tr['BT_NEW']; ?>" src="/attchar/images/reload.png" /></a>
 <a href="#" onclick="attchar_audio();" title="<?php echo $tr['BT_SND']; ?>"><img id="attchar_audiojs" style="display:none;" alt="<?php echo $tr['BT_SND']; ?>" src="/attchar/images/audio.png" /></a>
 <a id="attchar_audio" href="/attchar/attchar_audio.php?c=<?php echo $code.'&lang='.$lang; ?>" target="_blank" title="<?php echo $tr['BT_SND']; ?>" style="display:inline-block;"><img alt="<?php echo $tr['BT_SND']; ?>" src="/attchar/images/audio.png" /></a>
-<p class="attchar_text"><?php echo $tr['TXT']; ?></p>
 <script type="text/javascript" src="/attchar/attchar.js"></script>
 </div>

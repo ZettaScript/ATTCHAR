@@ -28,6 +28,12 @@ while($data = $req->fetch()) {
 		break;
 	}
 }
+
+$lang = 'en';
+$lang_available = array('en','fr','es');
+if(isset($_GET['lang']) and in_array($lang, $lang_available))
+	$lang = $_GET['lang'];
+
 $req->closeCursor();
 header('Cache-Control: no-cache, must-revalidate');
 $list = array();
@@ -36,7 +42,7 @@ if($code != '') {
 	header('Content-Disposition: inline; filename="attchar.wav"');
 	$i = 0;
 	while($i < 8) {
-		$list[] = 'sounds/sound_'.$code[$i].'.wav';
+		$list[] = 'sounds/'.$lang.'_'.$code[$i].'.wav';
 		$i ++;
 	}
 }

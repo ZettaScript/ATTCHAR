@@ -25,29 +25,23 @@ src: url(Cantarell-Regular.otf);
 color: white;
 background-color: black;
 border: 2px solid #0080FF;
-border-radius: 20px;
 width: 256px;
-text-align: center;
 font-family: Cantarell;
 font-size: 16px;
 }
 
-#attchar_title {
-font-size: 24px;
-}
-
 #attchar_input {
 font-family: Cantarell;
-font-size: 24px;
+font-size: 18px;
 border: 1px solid #0080FF;
-border-radius: 5px;
-height: 32px;
-width: 160px;
+height: 24px;
+width: 120px;
+float: left;
 }
 
 #attchar_new {
-margin-top: 4px;
-margin-bottom: -4px;
+position: relative;
+height: 24px;
 transition-property: transform, opacity;
 transition-duration: 0.3s;
 }
@@ -57,9 +51,9 @@ transform: rotate(180deg);
 opacity: 0.7;
 }
 
-#attchar_audio, #attchar_audiojs {;
-margin-top: 4px;
-margin-bottom: -4px;
+#attchar_audio, #attchar_audiojs {
+position: relative;
+height: 24px;
 transition-property: opacity;
 transition-duration: 0.3s;
 }
@@ -68,25 +62,14 @@ transition-duration: 0.3s;
 opacity: 0.7;
 }
 
-.attchar_text {
-padding-left: 8px;
-padding-right: 8px;
-padding-bottom: 4px;
-margin: 0;
-text-align: justify;
-line-height: 13pt;
-}
-
 #attchar_label {
 position: relative;
-top: 20px;
 z-index: -2;
+font-size: 8px;
 }
 
 #attchar_about {
-float: right;
-margin-top: -31px;
-margin-right: 8px;
+float: left;
 transition-property: opacity;
 transition-duration: 0.3s;
 }
