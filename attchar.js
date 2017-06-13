@@ -19,8 +19,8 @@ This file is part of ATTCHAR.
 var audio;
 function attchar_imgld() {
 	document.getElementById('attchar_input').disabled=false;
-	document.getElementById('attchar_input').placeholder = 'Code';
-	try {audio = new Audio("/attchar/attchar_audio.php?c="+document.getElementById("attchar_hid").value);}
+	document.getElementById('attchar_input').placeholder = tr_placeholder;
+	try {audio = new Audio("/attchar/attchar_audio.php?c="+document.getElementById("attchar_hid").value+"&lang="+attchar_lang);}
 	catch(e) {audio = null;}
 	if(audio) {
 		document.getElementById("attchar_audio").style.display = "none";
@@ -53,19 +53,19 @@ function attchar_new() {
 	var obj = document.getElementById("attchar_input");
 	obj.value = "";
 	obj.disabled = true;
-	obj.placeholder = "Connexion...";
+	obj.placeholder = tr_placeholder_conn;
 	obj.style = "background-color:white;";
 }
 xhr.onreadystatechange = function() {
 	if(xhr.readyState === 4) {
 		if(xhr.status === 200) {
-			document.getElementById("attchar_input").placeholder = "Chargement...";
+			document.getElementById("attchar_input").placeholder = tr_placeholder_load;
 			document.getElementById("attchar_img").src = "/attchar/attchar_gen.php?c="+xhr.responseText;
 			document.getElementById("attchar_hid").value = xhr.responseText;
 			document.getElementById("attchar_input").focus();
 		}
 		else
-			document.getElementById("attchar_input").placeholder = "Erreur!";
+			document.getElementById("attchar_input").placeholder = tr_placeholder_err;
 	}
 }
 function attchar_change(obj) {
