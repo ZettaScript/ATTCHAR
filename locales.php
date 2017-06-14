@@ -1,4 +1,5 @@
 <?php
-if(isset($lang) and file_exists('locales/'.$lang.'.php')) require('locales/'.$lang.'.php');
-else require('locales/en.php');
+if(isset($lang) and file_exists('locales/'.$lang.'.php')) {}
+else $lang = 'en';
+require('locales/'.$lang.'.php');
 ?>
