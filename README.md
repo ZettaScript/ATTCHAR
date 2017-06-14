@@ -32,6 +32,8 @@ It is true if you are a human, false if you are a robot.
 Warning: You must verify if the POST parameters are set:
 	isset($_POST['attchar_auto']) and isset($_POST['attchar_code'])
 
+See the example file example.php for more infos.
+
 ### Use the mini interface
 A compact sized form is available. To integrate it in your site, follow the instructions :
 Replace the stylesheet link by this one :
@@ -43,10 +45,8 @@ Use this PHP line instead :
 ### Change the language
 Change the ATTCHAR language is very simple :
 The variable $lang must be defined before attchar_form.php. It must contain the language code ('en' for English, 'fr' for French, etc).
-The available languages are in the repertory locales
-
-See example.php to get more details.
-
+The available languages are in the repertory locales.
+If $langdetect exists and is true, the script will automatically detect the browser's preferred language.
 
 ## Instructions (Français)
 ### Installer ATTCHAR
@@ -82,6 +82,8 @@ Elle vaut true si le test a été passé avec succès (si l'utilisateur est bien
 Attention: il faut vérifier avant d'inclure attchar_get.php que les paramètres POST sont bien déclarés:
 	isset($_POST['attchar_auto']) and isset($_POST['attchar_code'])
 
+Examinez le fichier d'exemple example.php pour plus de détails.
+
 ### Utiliser l'interface mini
 Un formulaire de taille réduite est disponible. Pour l'intégrer dans vos pages, procédez comme suit :
 Remplacer le lien vers la feuille de styles par celui-ci :
@@ -94,5 +96,4 @@ Inclure le fichier PHP suivant à la place de l'autre :
 Changer la langue de ATTCHAR est très simple :
 La variable $lang doit être définie avant attchar_form.php. Elle doit contenir le code de la langue souhaitée ('en' pour anglais, 'fr' pour français, etc).
 Les langues disponibles sont dans le dossier locales.
-
-Examinez le fichier example.php pour avoir plus de détails concernant l'implémentation.
+Pour que le script détecte automatiquement la langue du client, mettez $langdetect à true.
