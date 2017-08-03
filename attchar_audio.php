@@ -62,9 +62,16 @@ foreach($list as $file)
 	$res = fopen($file, 'rb');
 	fseek($res, 44);
 	$buf = fread($res, filesize($file) - 44);
+	
+	// generate white between digits
+	$len = rand(2000, 15000);
+	for($i=0; $i<$len; $i++) {
+		$buf .= "\x00\x00";
+	}
+	
 	$len = strlen($buf);
 	for($i=0; $i<$len; $i++) {
-		$datas .= chr((ord($buf[$i])+rand(-2,2))%256*!!rand(0,1000));
+		$datas .= chr((ord($buf[$i])+rand(-2,3))%256*!!rand(0,800));
 	}
 }
 
